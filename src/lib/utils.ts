@@ -11,16 +11,19 @@ export function formatPrice(
   options: {
     currency?: "USD" | "Q" | "EUR" | "GBP" | "BDT",
     notation?: Intl.NumberFormatOptions["notation"],
-  } ={}
+  } = {}
 ){
-  const {currency = "USD", notation = 'compact'} = options 
+  const {currency = "Q", notation = 'compact'} = options;
 
-  const numericPrice = typeof price === "string" ? parseFloat(price) : price
+  // Define el formato de moneda según la opción proporcionada
+  const currencyFormat = currency === "Q" ? "es-GT" : "en-US";
 
-  return new Intl.NumberFormat("en-US", {
+  const numericPrice = typeof price === "string" ? parseFloat(price) : price;
+
+  return new Intl.NumberFormat(currencyFormat, {
     style: "currency",
-    currency,
+    currency: currency === "Q" ? "GTQ" : currency, // Cambia a GTQ si la moneda es "Q"
     notation,
     maximumFractionDigits: 2
-  }).format(numericPrice)
+  }).format(numericPrice);
 }
