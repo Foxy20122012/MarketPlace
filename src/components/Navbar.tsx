@@ -4,6 +4,7 @@ import { Icons } from "./Icons";
 import NavItems from "./NavItems";
 import MobileNav from "./MobileNav";
 import { Button, buttonVariants } from "@/components/ui/button";
+import Cart from "./Cart";
 
 const Navbar =()=>{
     return(
@@ -52,10 +53,10 @@ const Navbar =()=>{
                         aria-hidden='true'
                       />
                     </div>
-                    {/* <div className='ml-4 flow-root lg:ml-6'>
+                    <div className='ml-4 flow-root lg:ml-6'>
                     <Cart />
-                  </div> */}
-                          Cart
+                  </div>
+                          
                           </div>
                         </div>
                       </div>
