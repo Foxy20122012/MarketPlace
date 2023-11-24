@@ -5,19 +5,19 @@ import Link from "next/link";
 
 const perks = [
 {
-  name: "Instant Devlivery",
+  name: "Entrega inmediata",
   icon: ArrowDownToLine,
-  Description: "Get your assets delivered to your email i<n seconds and dowloand them right away.",
+  Description: "Reciba sus activos en su correo electrónico en segundos y descárguelos de inmediato.",
 },
 {
-  name: "Guaranteed Quality",
+  name: "Calidad garantizada",
   icon: CheckCircle,
-  Description: "Every asset on our platform is verified by our team to ensure our highest quality standards.No happy? We offter a 30-day refund guarantee.",
+  Description: "Nuestro equipo verifica cada activo de nuestra plataforma para garantizar nuestros más altos estándares de calidad. ¿No estás contento? Ofrecemos una garantía de reembolso de 30 días.",
 },
 {
-  name: "For the planet",
+  name: "Para el planeta",
   icon: Leaf,
-  Description: "We're pledged 1% of sales to the preservation and restoration of the natural environment.",
+  Description: "Estamos comprometidos con el 1% de las ventas a la preservación y restauración del medio ambiente natural.",
 },
 ]
 
@@ -27,18 +27,18 @@ export default function Home() {
       <MaxWidthWrapper>
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Your marketplace for high-quality
+          Su mercado de alta calidad
             <span className="text-blue-600">digital assets</span>.
           </h1>
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
-            Welcome to MarketPlace. Every asset on our plattaform is verified by
-            our team to ensure our highest quality standards.
+          Bienvenido a MercadoPlace. Cada activo en nuestra plataforma es verificado por
+             nuestro equipo para garantizar nuestros más altos estándares de calidad.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link href="/products" className={buttonVariants()}>
-              Browse Trending
+            Explora tendencias
             </Link>
-            <Button variant="ghost">Our quality promise &rarr;</Button>
+            <Button variant="ghost">Nuestra promesa de calidad. &rarr;</Button>
           </div>
         </div>
 
@@ -59,7 +59,7 @@ export default function Home() {
                 <h3 className="mt-4 text-lg font-medium text-gray-900">
                   {perk.name}
                 </h3>
-                <p className="mt-2 text-base text-center text-muted-foreground">
+                <p className="mt-2 text-base text-center text-muted-foreground justify-center">
                   {perk.Description}
                 </p>
               </div>
