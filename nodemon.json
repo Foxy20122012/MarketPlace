@@ -1,0 +1,3 @@
+{
+    "wath": ["server.ts", "src/collections/**/*.ts","src/trpc/index.ts"]
+}

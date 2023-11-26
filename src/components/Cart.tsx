@@ -1,13 +1,17 @@
 'use client'
 
 import { ShoppingCart } from "lucide-react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Separator } from "@radix-ui/react-select";
 import { formatPrice } from "@/lib/utils";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import Image from "next/image";
 
 const Cart =()=>{
 
-  const itemCount = 6
+  const itemCount = 0
+  const fee = 0 //Esta constante fee hace referencia a la tarifa total
   return(
     <Sheet>
       <SheetTrigger className="grou -m-2 flex items-center p-2p">
@@ -38,13 +42,51 @@ const Cart =()=>{
                 </div>
                 <div className="flex">
                   <span className="flex-1">transacción libre</span>
-                  <span>{formatPrice(1)}</span>
+                  <span>{formatPrice(fee)}</span>
+                </div>
+                <div className="flex">
+                  <span className="flex-1">Total</span>
+                  <span>{formatPrice(fee)}</span>
                 </div>
               </div>
+              <SheetFooter>
+                <SheetTrigger asChild>
+                  <Link 
+                  href='/'
+                  className={buttonVariants({
+                    className: 'w-full', 
+                  })}
+                  >
+                  Continuar a la comprobación
+                  </Link>
+                </SheetTrigger>
+              </SheetFooter>
             </div>
           </>
         ): (
-          <div></div>
+          <div className="flex h-full flex-col items-center justify-center space-y-1">
+            <div aria-hidden className="relative mb-4 h-60 w-60 text-muted-foreground">
+              <Image 
+                src='/hippo-empty-cart.png' 
+                fill 
+                alt="empty shopping cart hippo"
+                />
+            </div>
+            <div className="text-cl font-semibold">Tu carrito esta vacío</div>
+              <SheetTrigger asChild>
+                <Link href='/products'
+                className={buttonVariants({
+                  variant: 'link',
+                  size: 'sm',
+                  className:
+                  'text-sm text-muted-foreground',
+                })}
+                >
+                  Agregue artículos a su carrito para realizar la compra.
+                </Link>
+              </SheetTrigger>
+            
+          </div>
         )}
       </SheetContent>
     </Sheet>
